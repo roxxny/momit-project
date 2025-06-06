@@ -1,0 +1,155 @@
+:root {
+  --btn-bg-color: #007aff;
+  --btn-bg-hover-color: #005ecb;
+  --btn-text-color: white;
+}
+
+.schedule-form {
+  background: none;
+  padding: 0;
+  font-family: 'Pretendard', sans-serif;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.form-title {
+  font-weight: 700;
+  font-size: 1.4rem;
+  line-height: 1.2;
+  margin-bottom: 0.4rem;
+}
+
+.label-date {
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+}
+
+.date-selectors {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.date-selectors select {
+  flex: 1;
+  padding: 6px 10px;
+  font-size: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  cursor: pointer;
+  background-color: white;
+  outline-offset: 2px;
+  transition: border-color 0.2s ease;
+}
+
+.date-selectors select:hover,
+.date-selectors select:focus {
+  border-color: #007aff;
+  outline: none;
+}
+
+.schedule-form input[type="text"] {
+  width: 100%;
+  padding: 10px 12px;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  outline-offset: 2px;
+  transition: border-color 0.2s ease;
+}
+
+.schedule-form input[type="text"]:hover,
+.schedule-form input[type="text"]:focus {
+  border-color: #007aff;
+  outline: none;
+}
+
+.importance-label {
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.importance-selector {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 1rem;
+}
+
+.importance-selector .circle {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 2px solid #ccc;
+  cursor: pointer;
+  background-color: transparent;
+  transition: background-color 0.3s, border-color 0.3s;
+  position: relative;
+  user-select: none;
+}
+
+.importance-selector .circle.selected {
+  border-width: 3px;
+}
+
+.importance-selector .circle.red {
+  background-color: #e63946; /* 매우 중요 빨강 */
+  border-color: #e63946;
+}
+
+.importance-selector .circle.orange {
+  background-color: #f4a261; /* 중요 오렌지 */
+  border-color: #f4a261;
+}
+
+.importance-selector .circle.blue {
+  background-color: #a8dadc; /* 보통 연하늘 */
+  border-color: #a8dadc;
+}
+
+.importance-selector .circle.selected::after {
+  content: "✔";
+  color: white;
+  font-size: 16px; 
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); 
+  user-select: none;
+  pointer-events: none;
+}
+
+
+.schedule-form button {
+  width: 100%;
+  background-color: var(--btn-bg-color);
+  border-radius: 10px;
+  padding: 12px 0;
+  font-weight: 700;
+  font-size: 1.1rem;
+  border: none;
+  color: var(--btn-text-color);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.schedule-form button:hover {
+  background-color: var(--btn-bg-hover-color);
+}
+.importance-high {
+  color: #e63946; /* 빨강, 매우 중요 */
+  font-weight: 700;
+  margin-left: 4px;
+}
+
+.importance-normal {
+  color: #f4a261; /* 주황, 중요 */
+  font-weight: 700;
+  margin-left: 4px;
+}
+
+.importance-low {
+  color: #5dade2; /* 진한 파란색, 보통 */
+  font-weight: 700;
+  margin-left: 4px;
+}

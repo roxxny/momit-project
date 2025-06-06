@@ -1,0 +1,97 @@
+.weekly-record {
+  padding: 1rem;
+  font-size: 0.95rem;
+  color: #222;
+}
+
+body.dark .weekly-record {
+  color: #ddd;
+}
+
+.weekly-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.weekly-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.weekly-item {
+  margin-bottom: 1rem;
+}
+
+.weekly-line {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.weekly-index {
+  width: 2rem;
+  font-weight: 600;
+}
+
+.weekly-time {
+  font-weight: 500;
+}
+
+.weekly-memo {
+  cursor: pointer;
+  color: #222;
+  font-weight: 500;
+}
+
+body.dark .weekly-memo {
+  color: #ccc;
+}
+
+.weekly-memo.clickable:hover {
+  text-decoration: underline;
+  color: #007aff;
+}
+
+body.dark .weekly-memo.clickable:hover {
+  color: #66aaff;
+}
+
+.weekly-edit-area {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.4rem;
+}
+
+.weekly-input {
+  flex: 1;
+  padding: 0.4rem;
+  border-radius: 6px;
+  border: 1px solid #aaa;
+  font-size: 0.9rem;
+  min-width: 200px;
+  max-width: 100%;
+  background-color: white;
+  color: black;
+}
+
+body.dark .weekly-input {
+  background-color: #333;
+  border: 1px solid #666;
+  color: #f0f0f0;
+}
+
+.weekly-save-btn {
+  background-color: #007aff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 0.4rem 1rem;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.weekly-save-btn:hover {
+  background-color: #005ecc;
+}
