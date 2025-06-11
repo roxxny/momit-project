@@ -10,6 +10,8 @@
   padding: 1.5rem;
   margin: 2rem auto;
   box-sizing: border-box;
+  overflow: auto;
+  scrollbar-width: none; /* Firefox */
 }
 
 .date-text {
@@ -28,13 +30,14 @@
   text-align: center;
   max-width: 100%;
   box-sizing: border-box;
-  margin-left: -1rem;
+  margin-left:-0.05rem;
 }
 
 /* 💻 1440px 이상 (15~24인치급) */
 @media screen and (min-width: 1440px) {
   .clock-text {
-    font-size: clamp(2.4rem, 5.5vw, 4rem);
+    font-size: clamp(2.2rem, 4.7vw, 3.4rem);
+
   }
 }
 

@@ -48,7 +48,7 @@ export default function WeeklyRecord({ records = [], onUpdateMemo }) {
         </p>
       )}
 
-      <h4>📋 전체 기록</h4>
+      <h4 className="all-list">📋 전체 기록</h4>
       <ul className="weekly-list">
         {records.map((r, i) => {
           const isEditing = selectedIndex === i;

@@ -2,6 +2,9 @@
   padding: 1rem;
   font-size: 0.95rem;
   color: #222;
+
+  overflow: auto;
+  scrollbar-width: none; /* Firefox */
 }
 
 body.dark .weekly-record {
@@ -12,6 +15,7 @@ body.dark .weekly-record {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 10px;
 }
 
 .weekly-list {
@@ -94,4 +98,8 @@ body.dark .weekly-input {
 
 .weekly-save-btn:hover {
   background-color: #005ecc;
+}
+
+.all-llist {
+    margin-bottom: 10px;
 }
