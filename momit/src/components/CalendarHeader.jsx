@@ -25,7 +25,7 @@ export default function CalendarHeader() {
 
   return (
     <div style={{ marginBottom: "1rem" }}>
-      <h2>{currentMonth}월 ✱</h2>
+      <h1>{currentMonth}월 ✱</h1>
       <p>
         오늘의 추천: <strong>{recommend}</strong>
       </p>

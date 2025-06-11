@@ -4,6 +4,8 @@ import Timer from "./components/Timer";
 import WeeklyRecord from "./components/WeeklyRecord";
 import ScheduleManager from "./components/ScheduleManager";
 import CalendarHeader from "./components/CalendarHeader";
+import lightLogo from './assets/LightLogo.png';
+import darkLogo from './assets/DarkLogo.png';
 
 export default function MainView() {
   const [darkMode, setDarkMode] = useState(false);
@@ -60,7 +62,21 @@ export default function MainView() {
             );
           }}
         >
-          M✱MiT
+        <div
+          className="logo"
+          onClick={() => {
+            setViewMode("main");
+            const today = new Date();
+            setSelectedDate(
+              `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, "0")}-${String(today.getDate()).padStart(2, "0")}`
+            );
+          }}>
+          <img src={darkMode ? darkLogo : lightLogo} 
+               style={{ width: "100px", height: "auto" }}
+               alt="로고" />
+        </div>
+
+
         </div>
         <nav>
           <button onClick={() => setViewMode("schedule")}>일정</button>

@@ -51,3 +51,14 @@ body.dark .center-panel {
   background-color: #222;
   border-color: #444;
 }
+
+button:hover {
+  color: #0077ff; 
+  background-color: #f0f0f0;
+}
+
+
+body.dark button:hover {
+  color: #ffcc00; 
+  background-color: #333; 
+}

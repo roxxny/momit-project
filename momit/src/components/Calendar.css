@@ -1,5 +1,9 @@
 /* 📁 src/Calendar.css - 개선된 달력 스타일 + 다크모드 대응 + 반응형 지원 */
 
+.calendar-container::-webkit-scrollbar {
+  display: none;
+}
+
 .calendar-container {
   margin-top: 1rem;
   background-color: #ffffff;
@@ -13,6 +17,9 @@
   flex-direction: column;
   flex-grow: 1;
   height: 80%;
+
+  overflow: auto;
+  scrollbar-width: none;
 }
 
 body.dark .calendar-container {
