@@ -1,5 +1,3 @@
-/* Timer.css */
-
 .timer-container {
   display: flex;
   flex-direction: column;
@@ -8,7 +6,8 @@
   width: 100%;
   max-width: 95vw;
   padding: 1.5rem;
-  margin: 2rem auto;
+  margin: 2rem top left right;
+  margin-bottom: 2rem bottom;
   box-sizing: border-box;
 }
 

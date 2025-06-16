@@ -4,6 +4,16 @@
   --btn-text-color: white;
 }
 
+.schedule-form::-webkit-scrollbar {
+  display: none;
+}
+
+.schedule-form {
+  -ms-overflow-style: none;  /* IE/Edge */
+  scrollbar-width: none;     /* Firefox */
+}
+
+
 .schedule-form {
   background: none;
   padding: 0;

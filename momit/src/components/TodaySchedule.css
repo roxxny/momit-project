@@ -1,0 +1,72 @@
+.today-schedule {
+  background-color: #fdfdfd;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 1.2rem;
+  max-width: 500px;
+  margin: 2rem auto;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.05);
+  font-family: "Pretendard", sans-serif;
+}
+
+.today-schedule h3 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.today-schedule ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.schedule-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.6rem 0.4rem;
+  border-bottom: 1px solid #eee;
+}
+
+.schedule-item:last-child {
+  border-bottom: none;
+}
+
+.schedule-item input[type="checkbox"] {
+  margin-right: 0.8rem;
+  transform: scale(1.2);
+}
+
+.schedule-item span {
+  flex: 1;
+  font-size: 1rem;
+  color: #333;
+}
+
+.btn-delete {
+  background: none;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+  color: #999;
+  padding: 0 0.5rem;
+  transition: color 0.2s ease;
+}
+
+.btn-delete:hover {
+  color: #d00;
+}
+body.dark .today-schedule {
+  background-color: #1f1f1f;
+  border-color: #333;
+}
+
+body.dark .schedule-item span {
+  color: #eee;
+}
+
+body.dark .btn-delete {
+  color: #888;
+}

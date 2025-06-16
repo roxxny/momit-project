@@ -6,6 +6,7 @@ import ScheduleManager from "./components/ScheduleManager";
 import CalendarHeader from "./components/CalendarHeader";
 import light_logo from './assets/light-mode-blue.jpg'
 import dark_logo from './assets/dark-mode-blue.jpg'
+import CalendarRecommendation from "./components/CalendarRecommendation"; // 경로 확인
 
 
 export default function MainView() {
@@ -70,8 +71,9 @@ export default function MainView() {
           />
         </div>
         <nav>
+          <button onClick={() => setViewMode("main")}>홈</button>
           <button onClick={() => setViewMode("schedule")}>일정</button>
-          <button>설정</button>
+          <button onClick={() => setViewMode("ga-ggu-mi")}>나 가꾸미</button>
         </nav>
         <button className="mode-toggle" onClick={() => setDarkMode(!darkMode)}>
           {darkMode ? "☀️" : "🌙"}
@@ -113,13 +115,15 @@ export default function MainView() {
             </aside>
           </>
         )}
-
         {viewMode === "schedule" && (
           <ScheduleManager
             calendarData={calendarData}
             setCalendarData={setCalendarData}
             onBack={() => setViewMode("main")}
           />
+        )}
+        {viewMode === "ga-ggu-mi" && (
+          <CalendarRecommendation />
         )}
       </main>
     </div>

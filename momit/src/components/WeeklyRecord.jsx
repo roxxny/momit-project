@@ -5,6 +5,16 @@ export default function WeeklyRecord({ records = [], onUpdateMemo }) {
   const [selectedIndex, setSelectedIndex] = useState(null);
   const [editValue, setEditValue] = useState("");
 
+  const formatTime = (timeStr) => {
+    const hMatch = timeStr.match(/(\d+)\s*시/);
+    const mMatch = timeStr.match(/(\d+)\s*분/);
+    const sMatch = timeStr.match(/(\d+)\s*초/);
+    const h = hMatch ? hMatch[1].padStart(2, "0") : "00";
+    const m = mMatch ? mMatch[1].padStart(2, "0") : "00";
+    const s = sMatch ? sMatch[1].padStart(2, "0") : "00";
+    return `${h}:${m}:${s}`;
+  };
+
   const durationToSeconds = (dur) => {
     if (!dur || typeof dur !== "string") return 0;
     const [h, m, s] = dur.split(":").map(Number);
@@ -36,6 +46,9 @@ export default function WeeklyRecord({ records = [], onUpdateMemo }) {
 
   return (
     <div className="weekly-record">
+      {/* ✅ 타이머와 기록 사이 구분선 */}
+      <hr className="weekly-divider" />
+
       <div className="weekly-header">
         <h3>✨ 이번 주 최장 기록</h3>
       </div>
@@ -61,14 +74,15 @@ export default function WeeklyRecord({ records = [], onUpdateMemo }) {
                   {String(i + 1).padStart(2, "0")}.
                 </span>
                 <span className="weekly-time">
-                  {r.start} - {r.end}
+                  {formatTime(r.start)} - {formatTime(r.end)}
                 </span>
-                <span
-                  className="weekly-memo clickable"
-                  onClick={() => handleMemoClick(i, r.memo)}
-                >
-                  {displayMemo}
-                </span>
+              </div>
+
+              <div
+                className={`weekly-memo ${r.memo ? "clickable" : ""}`}
+                onClick={() => handleMemoClick(i, r.memo)}
+              >
+                {displayMemo}
               </div>
 
               {isEditing && (

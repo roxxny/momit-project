@@ -1,33 +1,51 @@
-// components/CalendarHeader.jsx
 import React, { useState, useEffect } from "react";
-
-// 아래에 넣어놓으면 랜덤으로 나옴~
-const recommendations = [
-  "나만의 플레이리스트 만들기",
-  "운동 루틴 점검하기",
-  "독서 목표 세우기",
-  "새로운 요리 도전하기",
-  "사진 정리하기",
-];
 
 export default function CalendarHeader() {
   const [currentYear, setCurrentYear] = useState(null);
   const [currentMonth, setCurrentMonth] = useState(null);
+  const [currentDate, setCurrentDate] = useState(null);
   const [recommend, setRecommend] = useState("");
+  const [status, setStatus] = useState("아직 활동을 입력하지 않았어요");
 
   useEffect(() => {
     const now = new Date();
-    setCurrentYear(now.getFullYear());
-    setCurrentMonth(now.getMonth() + 1);
-    const randIndex = Math.floor(Math.random() * recommendations.length);
-    setRecommend(recommendations[randIndex]);
+    const year = now.getFullYear();
+    const month = now.getMonth() + 1;
+    const date = now.getDate();
+    setCurrentYear(year);
+    setCurrentMonth(month);
+    setCurrentDate(date);
+
+    // 추천 불러오기
+    fetch("/recommendations.json")
+      .then((res) => res.json())
+      .then((data) => {
+        const monthKey = `${month}월`;
+        const theme = data[monthKey]?.theme || "";
+        setRecommend(theme);
+      });
+
+    // 입력 여부 확인
+    const key = `${month}-${date}`;
+    const saved = localStorage.getItem("calendarEntries");
+    if (saved) {
+      const parsed = JSON.parse(saved);
+      if (parsed[key]) {
+        setStatus("오늘의 활동 완료 ✅");
+      }
+    }
   }, []);
 
   return (
     <div style={{ marginBottom: "1rem" }}>
-      <h2>{currentMonth}월 ✱</h2>
+      <h2>
+        오늘은 {currentMonth}월 {currentDate}일 ✱
+      </h2>
       <p>
-        오늘의 추천: <strong>{recommend}</strong>
+        오늘의 활동: <strong>{recommend}</strong>
+      </p>
+      <p>
+        입력 상태: <strong>{status}</strong>
       </p>
     </div>
   );

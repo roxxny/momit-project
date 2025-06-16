@@ -3,6 +3,18 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+
+  user-select: none;
+  -webkit-user-select: none; /* Safari */
+  -moz-user-select: none;    /* Firefox */
+  -ms-user-select: none;     /* IE/Edge */
+}
+
+*::-webkit-scrollbar {
+  display: none;
 }
 
 /* 전체 페이지 기본 스타일 */
@@ -11,6 +23,7 @@ body {
   background-color: white;
   color: #333;
   line-height: 1.5;
+
 }
 
 /* 다크모드용 클래스 적용 시 */

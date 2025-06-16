@@ -1,4 +1,4 @@
-/* 📁 src/Calendar.css - 개선된 달력 스타일 + 다크모드 대응 + 반응형 지원 */
+
 
 .calendar-container {
   margin-top: 1rem;
@@ -7,8 +7,6 @@
   border-radius: 8px;
   transition: background-color 0.3s ease;
   user-select: none;
-
-  /* 💡 달력이 세로로 꽉 차게 확장되도록 */
   display: flex;
   flex-direction: column;
   flex-grow: 1;
@@ -44,29 +42,28 @@ body.dark .calendar-header {
   padding: 0.2rem 0.6rem;
   border-radius: 4px;
   transition: background-color 0.2s ease, color 0.2s ease;
-  color: #444;
+  color: #dfdfdf;
 }
 
 .nav-btn:hover {
-  background-color: #007aff;
+  background-color: #bebebe;
   color: white;
 }
 
 .nav-btn:focus {
   outline: none;
-  box-shadow: 0 0 0 2px #007affaa;
+  box-shadow: 0 0 0 2px #999999aa;
 }
 
-/* ✅ 달력 그리드를 세로 공간에 맞게 늘리기 */
 .calendar-grid {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
-  grid-auto-rows: 1fr; /* 반응형 세로 줄 자동 설정 */
+  grid-template-rows: repeat(6, 1fr);
   gap: 0.5rem;
   background-color: #fff;
   transition: background-color 0.3s ease;
   border-radius: 6px;
-  flex-grow: 1;
+  height: 500px;
 }
 
 body.dark .calendar-grid {
@@ -124,7 +121,6 @@ body.dark .day.header {
   color: #ccc;
 }
 
-/* 점(dot) 영역 - 중요도 표시 */
 .dots {
   display: flex;
   justify-content: center;
@@ -142,25 +138,127 @@ body.dark .day.header {
   transition: background-color 0.3s ease;
 }
 
-.dot.high {
-  background-color: #0066cc; /* 진한 파랑 */
-  box-shadow: 0 0 6px #005bb5;
+button:hover {
+  color: #0077ff;
+  background-color: #f0f0f0;
 }
 
-.dot.normal {
-  background-color: #8ecaff; /* 연한 파랑 */
-  box-shadow: 0 0 4px #7db8e0;
+body.dark button:hover {
+  color: #ffcc00;
+  background-color: #333;
 }
 
 .dot.low {
-  background-color: #a8dadc; /* 연하늘 */
-  box-shadow: 0 0 3px #7ec1c8;
+  background-color: #8ac0ff;
 }
 
-/* 선택된 날짜 하이라이트 */
+.dot.normal {
+  background-color: #0077ff;
+}
+
+.dot.high {
+  background-color: #074096;
+}
+
+body.dark .dot.low {
+  background-color: #FFE066;
+  box-shadow: 0 0 4px rgba(255, 224, 102, 0.6);
+}
+
+body.dark .dot.normal {
+  background-color: #FFCC00;
+  box-shadow: 0 0 4px rgba(255, 204, 0, 0.6);
+}
+
+body.dark .dot.high {
+  background-color: #ffe600;
+  box-shadow: 0 0 4px rgba(255, 165, 0, 0.6);
+}
+
 .day.selected {
   border-color: #007aff;
-  background-color: #d0e7ff;
-  color: #003d99;
+  background-color: #8ac0ff;
+  color: #074096;
   font-weight: 600;
+}
+
+.calendar-schedule {
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 1.2rem;
+  margin-top: 1rem;
+  color: #222;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  max-width: 100%;
+  font-family: 'Pretendard', sans-serif;
+}
+
+.calendar-schedule h4 {
+  margin-bottom: 0.8rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #222;
+}
+
+.calendar-schedule ul {
+  list-style-type: disc;
+  padding-left: 1.5rem;
+  margin: 0;
+}
+
+.calendar-schedule li {
+  margin-bottom: 0.4rem;
+  line-height: 1.5;
+  font-size: 0.95rem;
+}
+
+.calendar-schedule li::marker {
+  color: #007aff;
+}
+
+.calendar-schedule li span {
+  font-weight: 500;
+  margin-left: 4px;
+}
+
+.calendar-schedule li span.low {
+  color: #7095CD;
+}
+
+.calendar-schedule li span.normal {
+  color: #3567B2;
+}
+
+.calendar-schedule li span.high {
+  color: #074096;
+  font-weight: bold;
+}
+
+body.dark .calendar-schedule {
+  background-color: #1f1f1f;
+  border: 1px solid #444;
+  color: #f0f0f0;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.4);
+}
+
+body.dark .calendar-schedule h4 {
+  color: #f0f0f0;
+}
+
+body.dark .calendar-schedule li::marker {
+  color: #FFCC00;
+}
+
+body.dark .calendar-schedule li span.low {
+  color: #FFE066;
+}
+
+body.dark .calendar-schedule li span.normal {
+  color: #FFCC00;
+}
+
+body.dark .calendar-schedule li span.high {
+  color: #FFA500;
+  font-weight: bold;
 }

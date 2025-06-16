@@ -1,4 +1,5 @@
 import React from "react";
+import './TodaySchedule.css';
 
 export default function TodaySchedule({ schedules, selectedDate, onDelete }) {
   return (

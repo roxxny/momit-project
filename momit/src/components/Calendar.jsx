@@ -59,7 +59,7 @@ export default function Calendar({ category, calendarData, onDateClick }) {
             {items.map((item, idx) => (
               <span
                 key={idx}
-                className={`dot ${item.importance === "high" ? "high" : "normal"}`}
+                className={`dot ${item.importance === "high" ? "normal" : "low"}`}
               />
             ))}
           </div>
@@ -67,10 +67,19 @@ export default function Calendar({ category, calendarData, onDateClick }) {
       );
     }
 
+    const totalCells = 42;
+    const remain = totalCells - days.length;
+
+    for (let i = 0; i < remain; i++) {
+      days.push(<div key={`filler-${i}`} className="day empty"></div>);
+    }
+
     return days;
   };
 
-  return (
+return (
+  <div className="calendar-wrapper">
+    {/* 달력만 */}
     <div className="calendar-container">
       <div className="calendar-header">
         <button className="nav-btn" onClick={prevMonth}>◀</button>
@@ -84,21 +93,33 @@ export default function Calendar({ category, calendarData, onDateClick }) {
         ))}
         {renderDays()}
       </div>
+    </div>
 
-      {selectedDate && (
-        <div className="selected-info">
-          <h4>{selectedDate} 일정</h4>
+    {selectedDate && (
+      <div>
+        <h4>{selectedDate} 일정</h4>
+        <div className="calendar-schedule">
           <ul>
             {(calendarData[selectedDate] || [])
-              .filter((item) => category === "전체" || item.category === category)
-              .map((item, idx) => (
-                <li key={idx}>
-                  {item.title} ({item.importance === "high" ? "매우중요" : item.importance === "normal" ? "중요" : "보통"})
-                </li>
-              ))}
+            .filter(item => category === "전체" || item.category === category)
+            .sort((a, b) => {
+              const importanceOrder = { high: 0, normal: 1, low: 2 };
+              return importanceOrder[a.importance] - importanceOrder[b.importance];
+            })
+            .map((item, idx) => (
+              <li key={idx}>
+                <span className={item.importance}>
+                  {item.importance === "high" ? "★★★" : item.importance === "normal" ? "★★☆" : "★☆☆"}
+                </span>
+                {" "}
+                {item.title}
+              </li>
+            ))}
           </ul>
         </div>
-      )}
-    </div>
-  );
+      </div>
+    )}
+  </div>
+);
+
 }

@@ -72,7 +72,6 @@ export default function ScheduleManager({ calendarData, setCalendarData }) {
       </section>
 
       <aside className="right-panel">
-        <h3>일정 추가하기</h3>
         <ScheduleForm onAdd={handleAddSchedule} selectedDate={selectedDate} />
 
         <h3>오늘의 일정</h3>
