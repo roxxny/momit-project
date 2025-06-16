@@ -92,19 +92,19 @@
   border-width: 3px;
 }
 
-.importance-selector .circle.red {
-  background-color: #e63946; /* 매우 중요 빨강 */
-  border-color: #e63946;
+.importance-selector .circle.first {
+  background-color: #0072F4; /* 매우 중요 빨강 */
+  border-color: #0072F4;
 }
 
-.importance-selector .circle.orange {
-  background-color: #f4a261; /* 중요 오렌지 */
-  border-color: #f4a261;
+.importance-selector .circle.second {
+  background-color: #6DB1FF; /* 중요 오렌지 */
+  border-color: #6DB1FF;
 }
 
-.importance-selector .circle.blue {
-  background-color: #a8dadc; /* 보통 연하늘 */
-  border-color: #a8dadc;
+.importance-selector .circle.third {
+  background-color: #C0DEFF; /* 보통 연하늘 */
+  border-color: #C0DEFF;
 }
 
 .importance-selector .circle.selected::after {
@@ -137,19 +137,19 @@
   background-color: var(--btn-bg-hover-color);
 }
 .importance-high {
-  color: #e63946; /* 빨강, 매우 중요 */
+  color: #0072F4; /* 빨강, 매우 중요 */
   font-weight: 700;
   margin-left: 4px;
 }
 
 .importance-normal {
-  color: #f4a261; /* 주황, 중요 */
+  color: #6DB1FF; /* 주황, 중요 */
   font-weight: 700;
   margin-left: 4px;
 }
 
 .importance-low {
-  color: #5dade2; /* 진한 파란색, 보통 */
+  color: #C0DEFF; /* 진한 파란색, 보통 */
   font-weight: 700;
   margin-left: 4px;
 }

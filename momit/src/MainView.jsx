@@ -4,6 +4,9 @@ import Timer from "./components/Timer";
 import WeeklyRecord from "./components/WeeklyRecord";
 import ScheduleManager from "./components/ScheduleManager";
 import CalendarHeader from "./components/CalendarHeader";
+import light_logo from './assets/light-mode-blue.jpg'
+import dark_logo from './assets/dark-mode-blue.jpg'
+
 
 export default function MainView() {
   const [darkMode, setDarkMode] = useState(false);
@@ -60,7 +63,11 @@ export default function MainView() {
             );
           }}
         >
-          M✱MiT
+          <img
+            src={darkMode ? dark_logo : light_logo}
+            alt="로고"
+            style={{ width: '100px', height: 'auto' }}
+          />
         </div>
         <nav>
           <button onClick={() => setViewMode("schedule")}>일정</button>
