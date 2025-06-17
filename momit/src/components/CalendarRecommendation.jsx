@@ -14,7 +14,9 @@ export default function CalendarRecommendation() {
   const todayKey = `${todayMonth}-${todayDate}`;
   const monthName = `${todayMonth}월`;
   const isTodayFilled = Boolean(entries[todayKey]);
-
+  const todayItem =
+    recommendations[monthName]?.items?.[todayDate - 1] || "";
+  
   useEffect(() => {
     const savedEntries = localStorage.getItem("calendarEntries");
     if (savedEntries) setEntries(JSON.parse(savedEntries));
@@ -65,7 +67,7 @@ const handleClick = (month, day) => {
 
       <div className="today-section">
         <p className="today-recommend">
-          <strong>오늘의 활동:</strong> {recommendations[monthName]?.theme || ""}
+          <strong>오늘의 활동:</strong> {todayItem}
         </p>
         <button
           onClick={handleInputToday}

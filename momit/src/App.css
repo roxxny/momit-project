@@ -173,3 +173,48 @@ button {
 button:hover {
   background-color: #005ecb;
 }
+
+.left-panel ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  text-align: left;
+}
+
+.left-panel li {
+  display: flex;
+  align-items: center;
+  height: 28px;
+  margin: 0.4rem 0;
+  padding-left: 0.5rem;
+  border-bottom: 1px solid #ccc;
+  font-size: 0.8rem;
+}
+
+.left-panel input[type="checkbox"] {
+  appearance: none;
+  width: 12px;
+  height: 12px;
+  border: 1px solid #ccc;
+  background-color: #eee;
+  margin-right: 8px;
+  cursor: pointer;
+}
+
+.left-panel input[type="checkbox"]:checked {
+  background-color: #007aff;
+  border-color: #007aff;
+}
+
+
+.left-panel input[type="checkbox"]:checked + label {
+  text-decoration: #007aff through;
+  color: #ccc;
+  text-decoration: line-through;
+}
+
+
+.left-panel label {
+  cursor: pointer;
+}
+

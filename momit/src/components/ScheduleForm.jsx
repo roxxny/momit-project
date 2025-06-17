@@ -65,7 +65,7 @@ export default function ScheduleForm({ onAdd, selectedDate }) {
       <div className="importance-label">중요도 선택</div>
       <div className="importance-selector">
         <div
-          className={`circle red ${importance === "high" ? "selected" : ""}`}
+          className={`circle high ${importance === "high" ? "selected" : ""}`}
           onClick={() => setImportance("high")}
           role="button"
           tabIndex={0}
@@ -73,7 +73,7 @@ export default function ScheduleForm({ onAdd, selectedDate }) {
           onKeyDown={(e) => { if (e.key === "Enter") setImportance("high"); }}
         />
         <div
-          className={`circle orange ${importance === "normal" ? "selected" : ""}`}
+          className={`circle normal ${importance === "normal" ? "selected" : ""}`}
           onClick={() => setImportance("normal")}
           role="button"
           tabIndex={0}
@@ -81,7 +81,7 @@ export default function ScheduleForm({ onAdd, selectedDate }) {
           onKeyDown={(e) => { if (e.key === "Enter") setImportance("normal"); }}
         />
         <div
-          className={`circle blue ${importance === "low" ? "selected" : ""}`}
+          className={`circle low ${importance === "low" ? "selected" : ""}`}
           onClick={() => setImportance("low")}
           role="button"
           tabIndex={0}

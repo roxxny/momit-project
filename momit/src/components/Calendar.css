@@ -58,7 +58,7 @@ body.dark .calendar-header {
 .calendar-grid {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
-  grid-template-rows: repeat(6, 1fr);
+  grid-template-rows: repeat(6, 1fr); 
   gap: 0.5rem;
   background-color: #fff;
   transition: background-color 0.3s ease;

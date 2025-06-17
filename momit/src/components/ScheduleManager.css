@@ -1,3 +1,22 @@
+:root {
+  --btn-bg-color: #007aff;
+  --btn-bg-hover-color: #005ecb;
+  --btn-text-color: white;
+
+  --color-high: #3b82f6;
+  --color-normal: #60a5fa;
+  --color-low: #93c5fd;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-high: #facc15;
+    --color-normal: #fcd34d;
+    --color-low: #fde68a;
+  }
+}
+
+/* 전체 레이아웃 */
 .schedule-manager-container {
   display: flex;
   flex-direction: row;
@@ -26,7 +45,6 @@
   max-width: 100%;
   padding: 1.5rem;
   border-right: 1px solid #eee;
-  box-sizing: border-box;
 }
 
 .right-panel {
@@ -35,50 +53,106 @@
   background-color: #f9f9f9;
 }
 
+/* 일정 없음 문구 */
 .empty-msg {
   font-style: italic;
   color: #666;
+  margin-top: 0.5rem;
+}
+
+/* 오늘의 일정 */
+.today-title {
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid #ddd;
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: #222;
 }
 
 .today-schedule-list {
   list-style: none;
   padding: 0;
-  margin: 0;
+  margin: 0.5rem 0 0;
 }
 
 .today-schedule-list li {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  margin-bottom: 0.3rem;
+  margin-bottom: 0.4rem;
+}
+
+.today-schedule-list input[type="checkbox"]:checked + span {
+  text-decoration: line-through;
+  color: #aaa;
 }
 
 .today-schedule-list button {
   background: none;
   border: none;
-  color: #e63946;
+  color: var(--color-high);
   cursor: pointer;
   font-size: 1rem;
 }
 
 .today-schedule-list button:hover {
   color: #b22222;
+  background-color: #f9f9f9;
 }
 
+/* 중요도 컬러 */
 .importance-high {
-  color: #e63946;
+  color: var(--color-high);
   font-weight: 700;
   margin-left: 4px;
 }
 
 .importance-normal {
-  color: #f4a261;
+  color: var(--color-normal);
   font-weight: 700;
   margin-left: 4px;
 }
 
 .importance-low {
-  color: #a8dadc;
+  color: var(--color-low);
   font-weight: 700;
   margin-left: 4px;
+}
+
+/* 왼쪽 - 이번달 주요 일정 */
+.schedule-group {
+  margin-bottom: 1.2rem;        /* ✅ 날짜 간 간격 */
+}
+
+
+.schedule-date {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: #666;
+  padding-bottom: 0.1rem;
+  margin-top: 0.6rem;        /* ✅ 날짜 아래 일정과의 간격 */
+}
+
+
+.schedule-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.schedule-list li {
+  font-size: 0.95rem;
+  margin-bottom: 0.3rem;
+  padding-left: 1.2rem;
+  position: relative;
+  color: #222;
+}
+
+.schedule-list li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: #007aff;
+  font-weight: bold;
 }

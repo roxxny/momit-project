@@ -1,96 +1,16 @@
+/* ===== 라이트모드 ===== */
+body {
+  background-color: #fff;
+  color: #222;
+}
+
+/* 공통 레이아웃 */
 .annual-calendar-container {
   padding: 2rem;
   overflow-x: auto;
-}
-
-.calendar-title {
-  font-size: 2rem;
-  font-weight: bold;
-  margin-bottom: 1rem;
-}
-
-.today-section {
-  margin-bottom: 1rem;
-}
-
-.today-recommend {
-  font-size: 1rem;
-  margin-bottom: 0.3rem;
-}
-
-.today-button {
-  background-color: #ffd966;
-  border: none;
-  padding: 0.4rem 0.8rem;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.calendar-table {
-  border-collapse: collapse;
-  width: 100%;
-  font-size: 0.75rem;
-}
-
-.calendar-table th,
-.calendar-table td {
-  border: 1px solid #ccc;
-  padding: 0.3rem;
-  text-align: center;
-  min-width: 30px;
-}
-
-.month-label {
-  font-weight: bold;
-  width: 80px;
-  text-align: left;
-  padding-left: 0.5rem;
-}
-
-.clickable {
-  cursor: pointer;
-}
-
-.filled {
-  background-color: #ffe18d;
-  cursor: pointer;
-}
-
-.disabled {
-  background-color: #f9f9f9;
-  color: #ccc;
-  pointer-events: none;
-}
-
-.today {
-  background-color: #cce5ff;
-  cursor: pointer;
-}
-
-.past {
-  background-color: #eee;
-  color: #aaa;
-  pointer-events: none;
-}
-
-.today-button {
-  background-color: #ffd966;
-  border: none;
-  padding: 0.4rem 0.8rem;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 0.9rem;
-}
-
-.today-button:disabled,
-.disabled-button {
-  background-color: #ccc;
-  color: #666;
-  cursor: not-allowed;
-}
-.annual-calendar-container {
-  padding: 2rem;
-  overflow-x: auto;
+  transform: scale(1.3);
+  transform-origin: top left;
+  width: 71.43%;
 }
 
 .calendar-title {
@@ -101,9 +21,6 @@
 
 .no-select {
   user-select: none;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
 }
 
 .today-section {
@@ -116,12 +33,35 @@
 }
 
 .today-button {
-  background-color: #ffd966;
+  background-color: #81b1ff;
+  color: #ffffff;
   border: none;
   padding: 0.4rem 0.8rem;
   border-radius: 5px;
   cursor: pointer;
   font-size: 0.9rem;
+  transition: 0.2s;
+}
+
+.today-button:hover {
+  background-color: #3b82f6;
+  color: #ffffff;
+}
+
+.today-button.dark {
+  background-color: #ffe18d;
+  color: #000;
+  border: none;
+  padding: 0.4rem 0.8rem;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: 0.2s;
+}
+
+.today-button:hover.dark {
+  background-color: #ffca37;
+  color: #000;
 }
 
 .today-button:disabled,
@@ -131,6 +71,7 @@
   cursor: not-allowed;
 }
 
+/* 캘린더 테이블 스타일 */
 .calendar-table {
   border-collapse: collapse;
   width: 100%;
@@ -143,6 +84,7 @@
   padding: 0.3rem;
   text-align: center;
   min-width: 30px;
+  color: #222;
 }
 
 .month-label {
@@ -150,21 +92,22 @@
   width: 80px;
   text-align: left;
   padding-left: 0.5rem;
+  color: #222;
 }
 
+/* 셀 상태별 스타일 */
 .filled {
   background-color: #ffe18d;
+  color: #000;
+  font-weight: bold;
   cursor: pointer;
-}
-
-.disabled {
-  background-color: #f9f9f9;
-  color: #ccc;
-  pointer-events: none;
 }
 
 .today {
   background-color: #cce5ff;
+  color: #000;
+  font-weight: bold;
+  cursor: pointer;
 }
 
 .past {
@@ -173,8 +116,64 @@
   pointer-events: none;
 }
 
-.annual-calendar-container {
-  transform: scale(1.3);
-  transform-origin: top left;
-  width: 71.43%; /* 100 / 1.4 → 맞춰줘야 좌우 스크롤 안 생김 */
+.disabled {
+  background-color: #f9f9f9;
+  color: #ccc;
+  pointer-events: none;
+}
+
+
+/* ===== 다크모드 ===== */
+body.dark {
+  background-color: #1c1c1c;
+  color: #eee;
+}
+
+body.dark .calendar-title,
+body.dark .today-recommend,
+body.dark .month-label {
+  color: #eee;
+}
+
+body.dark .calendar-table td,
+body.dark .calendar-table th {
+  border-color: #444;
+  color: #eee;
+}
+
+body.dark .filled {
+  background-color: #3b82f6;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+body.dark .today {
+  background-color: #2a4b6e;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+body.dark .past {
+  background-color: #333;
+  color: #aaa;
+  pointer-events: none;
+}
+
+body.dark .disabled {
+  background-color: #222;
+  color: #555;
+  pointer-events: none;
+}
+
+body.dark .today-button {
+  background-color: #3b82f6;
+  color: #fff;
+}
+
+body.dark .today-button:disabled,
+body.dark .disabled-button {
+  background-color: #444;
+  color: #999;
 }

@@ -87,7 +87,14 @@ export default function MainView() {
               <h3>오늘의 할 일</h3>
               <ul>
                 {todaySchedules.map((item, i) => (
-                  <li key={i}>{item.title}</li>
+                  <li key={i}>
+                    <input
+                      type="checkbox"
+                      id={`checkbox-${i}`}
+                      name={`checkbox-${i}`}
+                    />
+                    <label htmlFor={`checkbox-${i}`}>{item.title}</label>
+                  </li>
                 ))}
               </ul>
             </aside>

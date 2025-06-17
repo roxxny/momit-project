@@ -2,17 +2,20 @@
   --btn-bg-color: #007aff;
   --btn-bg-hover-color: #005ecb;
   --btn-text-color: white;
+
+  /* 기본: 라이트 모드 색상 */
+  --color-high: #3b82f6;   /* 파랑 */
+  --color-normal: #60a5fa; /* 중간 파랑 */
+  --color-low: #93c5fd;    /* 연한 파랑 */
 }
 
-.schedule-form::-webkit-scrollbar {
-  display: none;
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-high: #facc15;   /* 노랑 */
+    --color-normal: #fcd34d; /* 중간 노랑 */
+    --color-low: #fde68a;    /* 연한 노랑 */
+  }
 }
-
-.schedule-form {
-  -ms-overflow-style: none;  /* IE/Edge */
-  scrollbar-width: none;     /* Firefox */
-}
-
 
 .schedule-form {
   background: none;
@@ -90,45 +93,43 @@
   width: 22px;
   height: 22px;
   border-radius: 50%;
-  border: 2px solid #ccc;
+  border: 2px solid transparent;
   cursor: pointer;
-  background-color: transparent;
   transition: background-color 0.3s, border-color 0.3s;
   position: relative;
   user-select: none;
+}
+
+.circle.high {
+  background-color: var(--color-high);
+  border-color: var(--color-high);
+}
+
+.circle.normal {
+  background-color: var(--color-normal);
+  border-color: var(--color-normal);
+}
+
+.circle.low {
+  background-color: var(--color-low);
+  border-color: var(--color-low);
 }
 
 .importance-selector .circle.selected {
   border-width: 3px;
 }
 
-.importance-selector .circle.red {
-  background-color: #e63946; /* 매우 중요 빨강 */
-  border-color: #e63946;
-}
-
-.importance-selector .circle.orange {
-  background-color: #f4a261; /* 중요 오렌지 */
-  border-color: #f4a261;
-}
-
-.importance-selector .circle.blue {
-  background-color: #a8dadc; /* 보통 연하늘 */
-  border-color: #a8dadc;
-}
-
 .importance-selector .circle.selected::after {
   content: "✔";
   color: white;
-  font-size: 16px; 
+  font-size: 16px;
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%); 
+  transform: translate(-50%, -50%);
   user-select: none;
   pointer-events: none;
 }
-
 
 .schedule-form button {
   width: 100%;
@@ -145,21 +146,4 @@
 
 .schedule-form button:hover {
   background-color: var(--btn-bg-hover-color);
-}
-.importance-high {
-  color: #e63946; /* 빨강, 매우 중요 */
-  font-weight: 700;
-  margin-left: 4px;
-}
-
-.importance-normal {
-  color: #f4a261; /* 주황, 중요 */
-  font-weight: 700;
-  margin-left: 4px;
-}
-
-.importance-low {
-  color: #5dade2; /* 진한 파란색, 보통 */
-  font-weight: 700;
-  margin-left: 4px;
 }
